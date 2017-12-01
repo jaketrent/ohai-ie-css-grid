@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>ohai grid in ie</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .space {
+      padding: 100px 0;
+    }
+    .grid {
+      display: grid;
+      display: -ms-grid;
+      grid-gap: 16px;
+    }
+    .grid--count-3 {
+      grid-template-columns: repeat(1, 1fr);
+      -ms-grid-columns: 1fr 1fr 1fr;
+      -ms-grid-rows: auto auto;
+    }
+    .grid--count-4 {
+      grid-template-columns: repeat(2, 1fr);
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: auto auto auto;
+    }
+    .grid--count-6 {
+      grid-template-columns: repeat(2, 1fr);
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: auto auto auto;
+    }
+
+    .box {
+      background: hotpink;
+    }
+    
+    /* IE10+ CSS styles go here */
+    /* https://stackoverflow.com/questions/28417056/how-to-target-only-ie-any-version-within-a-stylesheet */
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      /* IE has no grid-gap support */
+      .grid {
+        margin: calc(16px / -2);
+      }
+      .box {
+        margin: calc(16px / 2);
+      }
+
+      .grid--count-3 .box1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box2 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box3 {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box4 {
+        -ms-grid-row: 4;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box5 {
+        -ms-grid-row: 5;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box6 {
+        -ms-grid-row: 6;
+        -ms-grid-column: 1;
+      }
+
+      .grid--count-4 .box1,
+      .grid--count-6 .box1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+      .grid--count-4 .box2,
+      .grid--count-6 .box2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+      .grid--count-4 .box3,
+      .grid--count-6 .box3 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+      }
+      .grid--count-4 .box4,
+      .grid--count-6 .box4 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+      }
+      .grid--count-4 .box5,
+      .grid--count-6 .box5 {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
+      }
+      .grid--count-4 .box6,
+      .grid--count-6 .box6 {
+        -ms-grid-row: 3;
+        -ms-grid-column: 2;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      .grid--count-3 {
+        grid-template-columns: repeat(3, 1fr);
+        -ms-grid-columns: 1fr 1fr 1fr;
+        -ms-grid-rows: auto auto;
+      }
+      .grid--count-4 {
+        grid-template-columns: repeat(4, 1fr);
+        -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: auto auto;
+      }
+      .grid--count-6 {
+        grid-template-columns: repeat(6, 1fr);
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: auto;
+      }
+    }
+
+    @media screen and (min-width: 769px), (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      .grid--count-3 .box1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+      .grid--count-3 .box3 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 3;
+      }
+      .grid--count-3 .box4 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+      }
+      .grid--count-3 .box5 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+      }
+      .grid--count-3 .box6 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 3;
+      }
+
+      .grid--count-4 .box1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+      .grid--count-4 .box2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+      .grid--count-4 .box3 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 3;
+      }
+      .grid--count-4 .box4 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+      }
+      .grid--count-4 .box5 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+      }
+      .grid--count-4 .box6 {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+      }
+
+      .grid--count-6 .box1 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+      .grid--count-6 .box2 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+      .grid--count-6 .box3 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 3;
+      }
+      .grid--count-6 .box4 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+      }
+      .grid--count-6 .box5 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 5;
+      }
+      .grid--count-6 .box6 {
+        -ms-grid-row: 1;
+        -ms-grid-column: 6;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>ohai grid in ie</h2>
+
+  <div class="grid grid--count-3">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+  </div>
+
+
+  <div class="space grid grid--count-4">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+  </div>
+
+
+  <div class="grid grid--count-6">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+  </div>
+
+</body>
+</html>
